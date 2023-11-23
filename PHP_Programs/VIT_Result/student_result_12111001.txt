@@ -1,0 +1,27 @@
+Results for Roll Number: 12111001
+
+Subject: Web Technology
+MSE Marks: 82.00
+ESE Marks: 90.00
+Total Marks: 87.60
+
+Subject: Design and Analysis of Algorithms
+MSE Marks: 84.00
+ESE Marks: 92.00
+Total Marks: 89.60
+
+Subject: Computer Networks
+MSE Marks: 86.00
+ESE Marks: 94.00
+Total Marks: 91.60
+
+Subject: Software Design and Modelling
+MSE Marks: 88.00
+ESE Marks: 96.00
+Total Marks: 93.60
+
+Subject: Total
+MSE Marks: 25.50
+ESE Marks: 65.10
+Total Marks: 90.60
+

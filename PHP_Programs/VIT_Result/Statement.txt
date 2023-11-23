@@ -1,1 +1,15 @@
+7. Design and develop a responsive website to prepare one semester result of VIT students using 
+JavaScript, PHP and MySQL. Take any four subjects with MSE Marks (30%) ESE Marks (70%).
+
+Start xampp server
+Start Apache in xampp server
+Start MySQL in xampp server
+
+Path of results :
+C:\xampp\htdocs\php_programs\result
+
+To run file :
+Go to browser -> Type http://localhost/php_programs/result/
+
+
 
