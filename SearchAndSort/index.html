@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and Sort</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add custom CSS styles */
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Search and Sort</h1>
+        <!-- Dynamic tabs to separate integer and named entity sections -->
+        <ul class="nav nav-tabs" id="myTabs">
+            <li class="nav-item">
+                <a class="nav-link active" id="intTab" data-toggle="tab" href="#integerSection">Integer Array</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="entityTab" data-toggle="tab" href="#entitySection">Named Entities</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <!-- Tab content for integer section -->
+            <div id="integerSection" class="tab-pane fade show active">
+                <div class="form-group">
+                    <label for="integerInput">Enter integers (comma-separated):</label>
+                    <input type="text" class="form-control" id="integerInput">
+                </div>
+                <button class="btn btn-primary" id="searchIntBtn">Search</button>
+                <button class="btn btn-primary" id="sortAscIntBtn">Sort Ascending</button>
+                <button class="btn btn-primary" id="sortDescIntBtn">Sort Descending</button>
+                <div id="resultInt" class="mt-3"></div>
+            </div>
+
+            <!-- Tab content for named entity section -->
+            <div id="entitySection" class="tab-pane fade">
+                <div class="form-group">
+                    <label for="entityInput">Enter named entities (comma-separated):</label>
+                    <input type="text" class="form-control" id="entityInput">
+                </div>
+                <button class="btn btn-primary" id="searchEntityBtn">Search</button>
+                <button class="btn btn-primary" id="sortEntityBtn">Sort</button>
+                <div id="resultEntity" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap and jQuery scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Event handler for the tab toggle
+            $('#myTabs a').on('click', function (e) {
+                e.preventDefault()
+                $(this).tab('show')
+            });
+
+            // Event handlers for integer section
+            $("#searchIntBtn").click(function () {
+                let input = $("#integerInput").val().trim(); // Get input value and trim whitespace
+                let target = prompt("Enter the integer to search for:");
+
+                if (target === null) return; // Handle cancel button in prompt
+
+                let integers = input.split(',').map(Number);
+
+                if (integers.includes(Number(target))) {
+                    $("#resultInt").html(`Found ${target} in the array.`);
+                } else {
+                    $("#resultInt").html(`${target} not found in the array.`);
+                }
+            });
+
+            $("#sortAscIntBtn").click(function () {
+                let input = $("#integerInput").val().trim();
+                let integers = input.split(',').map(Number);
+                integers.sort((a, b) => a - b);
+                $("#resultInt").html(`Sorted in ascending order: ${integers.join(', ')}`);
+            });
+
+            $("#sortDescIntBtn").click(function () {
+                let input = $("#integerInput").val().trim();
+                let integers = input.split(',').map(Number);
+                integers.sort((a, b) => b - a);
+                $("#resultInt").html(`Sorted in descending order: ${integers.join(', ')}`);
+            });
+
+            // Event handlers for named entity section
+            $("#searchEntityBtn").click(function () {
+                let input = $("#entityInput").val().trim();
+                let target = prompt("Enter the named entity to search for:");
+
+                if (target === null) return;
+
+                let entities = input.split(',').map(entity => entity.trim());
+
+                if (entities.includes(target)) {
+                    $("#resultEntity").html(`Found "${target}" in the array.`);
+                } else {
+                    $("#resultEntity").html(`"${target}" not found in the array.`);
+                }
+            });
+
+            $("#sortEntityBtn").click(function () {
+                let input = $("#entityInput").val().trim();
+                let entities = input.split(',').map(entity => entity.trim());
+                entities.sort();
+                $("#resultEntity").html(`Sorted named entities: ${entities.join(', ')}`);
+            });
+        });
+    </script>
+</body>
+
+</html>
