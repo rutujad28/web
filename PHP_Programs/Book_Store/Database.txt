@@ -1,0 +1,41 @@
+create database book_store;
+
+use book_store;
+
+CREATE TABLE bookstore_users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    bookstore_user_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (bookstore_user_id) REFERENCES bookstore_users(id)
+);
+
+CREATE TABLE catalogue (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    bookstore_user_id INT NOT NULL,
+    book_id INT NOT NULL,
+    selling_details VARCHAR(255) NOT NULL,
+    FOREIGN KEY (bookstore_user_id) REFERENCES bookstore_users(id),
+    FOREIGN KEY (book_id) REFERENCES books(id)
+);
+
+CREATE TABLE sold_books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    bookstore_user_id INT NOT NULL,
+    book_id INT NOT NULL,
+    customer_name VARCHAR(255) NOT NULL,
+    customer_mobile VARCHAR(15) NOT NULL,
+    sale_date DATETIME NOT NULL,
+    FOREIGN KEY (bookstore_user_id) REFERENCES bookstore_users(id),
+    FOREIGN KEY (book_id) REFERENCES books(id)
+);

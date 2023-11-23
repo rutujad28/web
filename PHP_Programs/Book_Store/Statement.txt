@@ -1,1 +1,12 @@
+8. Design and develop a responsive website for an online book store using PHP and MySQL having 
+1) Home Page2) Login Page 3) Catalogue Page: 4) Registration Page: (database)
 
+Start xampp server
+Start Apache in xampp server
+Start MySQL in xampp server
+
+Path of results :
+C:\xampp\htdocs\php_programs\book_store
+
+To run file :
+Go to browser -> Type http://localhost/php_programs/book_store/
