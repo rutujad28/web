@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header,
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            padding: 20px;
+            margin: 10px;
+        }
+
+        #top-section,
+        #bottom-section {
+            background-color: #f2f2f2;
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            /* Adjust styles for smaller screens */
+            header,
+            footer {
+                font-size: 14px;
+            }
+
+            section {
+                padding: 10px;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Header Section</h1>
+    </header>
+
+    <section id="top-section">
+        <h2>Top Section</h2>
+        <p>Content for the top section goes here.</p>
+    </section>
+
+    <section>
+        <h2>Main Content Section</h2>
+        <p>Main content goes here.</p>
+    </section>
+
+    <section id="bottom-section">
+        <h2>Bottom Section</h2>
+        <p>Content for the bottom section goes here.</p>
+    </section>
+
+    <footer>
+        <p>Footer Section &copy; 2023</p>
+    </footer>
+
+</body>
+
+</html>
