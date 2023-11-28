@@ -1,1 +1,10 @@
+create database employee_management;
 
+use employee_management;
+
+CREATE TABLE employees (
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(255) NOT NULL,
+position VARCHAR(255) NOT NULL,
+department VARCHAR(255) NOT NULL
+);
